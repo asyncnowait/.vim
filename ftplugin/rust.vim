@@ -8,14 +8,20 @@ function! CloseLastWindow() abort
     endif 
 endfunction
 
+let g:ale_rust_cargo_use_clippy = 1
+
 nnoremap <Leader>r :Crun<CR>
 nnoremap <Leader>q :call CloseLastWindow()<CR>
 nnoremap <Leader>t :Ctest -- --nocapture<CR>
 nnoremap <Leader>c :Ccheck<CR>
 nnoremap <Leader>b :Cbench<CR>
-nnoremap gd :ALEGoToDefinition<CR>
+nnoremap \d :ALEGoToDefinition<CR>
+nnoremap \h :ALEHover<CR>
 
-let g:ale_fixers = { 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'] }
-let g:ale_linters = {
-  \  'rust': ['analyzer'],
-  \}
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'rust': ['rls', 'rustfmt'],
+\}
+
+inoremap <silent><expr><TAB>
+    \ pumvisible() ? "\<C-n>" : "\<TAB>"
