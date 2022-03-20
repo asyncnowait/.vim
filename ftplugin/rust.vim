@@ -1,5 +1,5 @@
 set splitbelow
-let g:cargo_shell_command_runner = "terminal ++rows=20 ++noclose"
+let g:cargo_shell_command_runner = "terminal ++noclose"
 
 function! CloseLastWindow() abort 
     if winnr() >= 2 
@@ -20,7 +20,7 @@ nnoremap \h :ALEHover<CR>
 
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-  \ 'rust': ['rls', 'rustfmt'],
+  \ 'rust': ['rustfmt'],
 \}
 
 inoremap <silent><expr><TAB>
