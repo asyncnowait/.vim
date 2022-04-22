@@ -48,5 +48,12 @@ let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_sign_column_always = 1
 
+" window wired stuff
+fixdel
+set backspace=2
+set backspace=indent,eol,start
+
+set nobackup
+set noswapfile
 
 
